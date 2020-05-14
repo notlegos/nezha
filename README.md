@@ -4,7 +4,7 @@
 
 ![](/nezha.png/)
 
-This extension is designed to programme and drive the NeZha micro:bit expansion board, You can [get NeZha from the Elecfreaks store](https://www.elecfreaks.com/store)
+This extension is designed to programme and drive the NeZha micro:bit expansion board, You can [get NeZha from the Elecfreaks store](https://www.elecfreaks.com/store/nezha-breakout-board-for-micro-bit.html)
 
 ## Code Example
 ```JavaScript
