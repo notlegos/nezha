@@ -40,6 +40,12 @@ namespace neZha {
     //% speed.min=-100 speed.max=100
     export function setMotorSpeed(motor: MotorList, speed: number): void {
         let iic_buffer = pins.createBuffer(4);
+        if (speed > 100) {
+            speed = 100
+        }
+        else if(speed < -100){
+            speed = -100
+        }
         switch (motor) {
             case MotorList.M1:
                 iic_buffer[0] = 0x01;
@@ -160,10 +166,10 @@ namespace neZha {
         if (speed < 0) {
             speed = Math.map(speed, -100, -1, 0, 70)
         }
-        else if(speed > 0){
+        else if (speed > 0) {
             speed = Math.map(speed, 1, 100, 110, 180)
         }
-        else{
+        else {
             speed = 90
         }
         setServoAngel(servo, speed)
