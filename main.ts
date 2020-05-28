@@ -161,7 +161,7 @@ namespace neZha {
             speed = Math.map(speed, -100, -1, 20, 90)
         }
         else if(speed > 0){
-            speed = Math.map(speed, 1, 100, 110, 180)
+            speed = Math.map(speed, 1, 100, 100, 180)
         }
         else{
             speed = 90
