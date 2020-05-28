@@ -157,8 +157,16 @@ namespace neZha {
     //% blockId=setServoSpeed block="Set 360° servo %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setServoSpeed(servo: ServoList, speed: number): void {
-        let angel = Math.map(speed, -100, 100, 30, 150)
-        setServoAngel(servo, angel)
+        if (speed < 0) {
+            speed = Math.map(speed, -100, -1, 30, 90)
+        }
+        else if(speed > 0){
+            speed = Math.map(speed, 1, 100, 120, 180)
+        }
+        else{
+            speed = 90
+        }
+        setServoAngel(servo, speed)
     }
 
 }
