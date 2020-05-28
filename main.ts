@@ -158,10 +158,10 @@ namespace neZha {
     //% speed.min=-100 speed.max=100
     export function setServoSpeed(servo: ServoList, speed: number): void {
         if (speed < 0) {
-            speed = Math.map(speed, -100, -1, 20, 90)
+            speed = Math.map(speed, -100, -1, 0, 70)
         }
         else if(speed > 0){
-            speed = Math.map(speed, 1, 100, 100, 180)
+            speed = Math.map(speed, 1, 100, 110, 180)
         }
         else{
             speed = 90
