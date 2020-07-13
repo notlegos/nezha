@@ -177,8 +177,8 @@ namespace neZha {
      * @param servo A servo in the ServoList , eg: ServoList.S1
      * @param angel Angle of servo motor , eg: 100
      */
-    //% weight=84
-    //% blockId=setServoSpeed block="Set 360° servo %servo speed to %speed\\%"
+    //% weight=83
+    //% blockId=setServoSpeed block="Set servo %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setServoSpeed(servo: ServoList, speed: number): void {
         if (speed < 0) {
