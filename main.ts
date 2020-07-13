@@ -158,13 +158,13 @@ namespace neZha {
         }
         switch(servoType){
             case ServoTypeList._180:
-                Math.map(angel, 0, 180, 0, 180)
+                angel = Math.map(angel, 0, 180, 0, 180)
                 break
             case ServoTypeList._270:
-                Math.map(angel, 0, 270, 0, 180)
+                angel = Math.map(angel, 0, 270, 0, 180)
                 break
             case ServoTypeList._360:
-                Math.map(angel, 0, 360, 0, 180)
+                angel = Math.map(angel, 0, 360, 0, 180)
                 break
         }
         iic_buffer[1] = angel;
