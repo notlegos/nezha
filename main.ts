@@ -30,6 +30,14 @@ namespace neZha {
         //% block="S4"
         S4
     }
+    export enum ServoTypeList {
+        //% block="180°" 
+        _180,
+        //% block="270°"
+        _270,
+        //% block="360°" 
+        _360
+    }
 	/**
      * TODO: Set the speed of M1, M2, M3, M4 motor. 
      * @param motor M1, M2, M3, M4 motor , eg: MotorList.M1
@@ -131,9 +139,8 @@ namespace neZha {
      * @param angel Angle of servo motor , eg: 90
      */
     //% weight=84
-    //% blockId=setServoAngel block="Set 180° servo %servo angel to %angle°"
-    //% angle.shadow="protractorPicker"
-    export function setServoAngel(servo: ServoList, angel: number): void {
+    //% blockId=setServoAngel block="Set %servoType servo %servo angel to %angle°"
+    export function setServoAngel(servoType:ServoTypeList,servo: ServoList, angel: number): void {
         let iic_buffer = pins.createBuffer(4);
         switch (servo) {
             case ServoList.S1:
@@ -148,6 +155,17 @@ namespace neZha {
             case ServoList.S4:
                 iic_buffer[0] = 0x13;
                 break;
+        }
+        switch(servoType){
+            case ServoTypeList._180:
+                Math.map(angel, 0, 180, 0, 180)
+                break
+            case ServoTypeList._270:
+                Math.map(angel, 0, 270, 0, 180)
+                break
+            case ServoTypeList._360:
+                Math.map(angel, 0, 360, 0, 180)
+                break
         }
         iic_buffer[1] = angel;
         iic_buffer[2] = 0;
@@ -172,6 +190,6 @@ namespace neZha {
         else {
             speed = 90
         }
-        setServoAngel(servo, speed)
+        setServoAngel(ServoTypeList._360,servo, speed)
     }
 }
