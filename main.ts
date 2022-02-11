@@ -178,7 +178,7 @@ namespace neZha {
      * @param angel Angle of servo motor , eg: 100
      */
     //% weight=83
-    //% blockId=setServoSpeed block="Set servo %servo speed to %speed\\%"
+    //% blockId=setServoSpeed block="Set continuous rotation servo %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setServoSpeed(servo: ServoList, speed: number): void {
         speed = Math.map(speed, -100, 100, 0, 180)
