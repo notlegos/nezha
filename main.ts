@@ -67,8 +67,6 @@ namespace neZha {
                 iic_buffer[2] = speed;
                 iic_buffer[3] = 0;
                 pins.i2cWriteBuffer(neZha_address, iic_buffer);
-                basic.pause(10)
-                pins.i2cWriteBuffer(neZha_address, iic_buffer);
                 break;
             case MotorList.M2:
                 iic_buffer[0] = 0x02;
@@ -81,8 +79,6 @@ namespace neZha {
                 }
                 iic_buffer[2] = speed;
                 iic_buffer[3] = 0;
-                pins.i2cWriteBuffer(neZha_address, iic_buffer);
-                basic.pause(10)
                 pins.i2cWriteBuffer(neZha_address, iic_buffer);
                 break;
             case MotorList.M3:
@@ -97,8 +93,6 @@ namespace neZha {
                 iic_buffer[2] = speed;
                 iic_buffer[3] = 0;
                 pins.i2cWriteBuffer(neZha_address, iic_buffer);
-                basic.pause(10)
-                pins.i2cWriteBuffer(neZha_address, iic_buffer);
                 break;
             case MotorList.M4:
                 iic_buffer[0] = 0x04;
@@ -111,8 +105,6 @@ namespace neZha {
                 }
                 iic_buffer[2] = speed;
                 iic_buffer[3] = 0;
-                pins.i2cWriteBuffer(neZha_address, iic_buffer);
-                basic.pause(10)
                 pins.i2cWriteBuffer(neZha_address, iic_buffer);
                 break;
             default:
