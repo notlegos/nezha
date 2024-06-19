@@ -136,11 +136,11 @@ namespace neZha {
 	/*
      * TODO: Setting the angle of a servo motor. 
      * @param servo A servo in the ServoList , eg: ServoList.S1
-     * @param angel Angle of servo motor , eg: 90
+     * @param angle Angle of servo motor , eg: 90
      */
     //% weight=84
-    //% blockId=setServoAngel block="Set %servoType servo %servo angel to %angle°"
-    export function setServoAngel(servoType:ServoTypeList,servo: ServoList, angel: number): void {
+    //% blockId=setServoAngle block="Set %servoType servo %servo angle to %angle°"
+    export function setServoAngle(servoType:ServoTypeList,servo: ServoList, angle: number): void {
         let iic_buffer = pins.createBuffer(4);
         switch (servo) {
             case ServoList.S1:
@@ -158,16 +158,16 @@ namespace neZha {
         }
         switch(servoType){
             case ServoTypeList._180:
-                angel = Math.map(angel, 0, 180, 0, 180)
+                angle = Math.map(angle, 0, 180, 0, 180)
                 break
             case ServoTypeList._270:
-                angel = Math.map(angel, 0, 270, 0, 180)
+                angle = Math.map(angle, 0, 270, 0, 180)
                 break
             case ServoTypeList._360:
-                angel = Math.map(angel, 0, 360, 0, 180)
+                angle = Math.map(angle, 0, 360, 0, 180)
                 break
         }
-        iic_buffer[1] = angel;
+        iic_buffer[1] = angle;
         iic_buffer[2] = 0;
         iic_buffer[3] = 0;
         pins.i2cWriteBuffer(neZha_address, iic_buffer);
@@ -175,13 +175,13 @@ namespace neZha {
     /*
      * TODO: Setting the speed of a servo motor. 
      * @param servo A servo in the ServoList , eg: ServoList.S1
-     * @param angel Angle of servo motor , eg: 100
+     * @param angle Angle of servo motor , eg: 100
      */
     //% weight=83
     //% blockId=setServoSpeed block="Set continuous rotation servo %servo speed to %speed\\%"
     //% speed.min=-100 speed.max=100
     export function setServoSpeed(servo: ServoList, speed: number): void {
         speed = Math.map(speed, -100, 100, 0, 180)
-        setServoAngel(ServoTypeList._180, servo, speed)
+        setServoAngle(ServoTypeList._180, servo, speed)
     }
 }
