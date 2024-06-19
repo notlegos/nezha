@@ -1,6 +1,6 @@
 {
     "name": "nezha",
-    "version": "1.3.6EN",
+    "version": "1.3.7",
     "description": "micro:bit extension for the Nezha board by ELECFREAKS Co.ltd",
     "dependencies": {
         "core": "*",
@@ -9,8 +9,6 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh/pxt-nezha-strings.json",
-        "_locales/el/pxt-nezha-strings.json"
     ],
     "testFiles": [
         "test.ts"
